@@ -35,12 +35,12 @@ resource "local_file" "AnsibleInventory" {
   content = templatefile("inventory.tmpl",
     {
       strapi-label = vultr_instance.strapi_server.label,
-      strapi-id = vultr_instance.strapi_server.id,
-      strapi-ip = vultr_instance.strapi_server.main_ip,
+      strapi-id    = vultr_instance.strapi_server.id,
+      strapi-ip    = vultr_instance.strapi_server.main_ip,
       # strapi-pip = vultr_instance.strapi_server.internal_ip,
       database-label = vultr_instance.strapi_database.label,
-      database-id = vultr_instance.strapi_database.id,
-      database-ip = vultr_instance.strapi_database.main_ip,
+      database-id    = vultr_instance.strapi_database.id,
+      database-ip    = vultr_instance.strapi_database.main_ip,
       # database-pip = vultr_instance.strapi_database.internal_ip
     }
   )

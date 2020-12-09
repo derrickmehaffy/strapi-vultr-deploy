@@ -19,71 +19,71 @@ resource "vultr_ssh_key" "strapi_ssh_key" {
 }
 
 resource "vultr_firewall_group" "strapi_app" {
-    description = "Strapi Application firewall rules"
+  description = "Strapi Application firewall rules"
 }
 
 resource "vultr_firewall_group" "strapi_db" {
-    description = "Strapi Database firewall rules"
+  description = "Strapi Database firewall rules"
 }
 
 resource "vultr_firewall_rule" "app_tcp_debug_1337" {
-    firewall_group_id = vultr_firewall_group.strapi_app.id
-    protocol          = "tcp"
-    ip_type           = "v4"
-    subnet            = "0.0.0.0"
-    subnet_size       = 0
-    port              = "1337"
-    notes             = "app debug strapi"
+  firewall_group_id = vultr_firewall_group.strapi_app.id
+  protocol          = "tcp"
+  ip_type           = "v4"
+  subnet            = "0.0.0.0"
+  subnet_size       = 0
+  port              = "1337"
+  notes             = "app debug strapi"
 }
 
 resource "vultr_firewall_rule" "app_tcp_80" {
-    firewall_group_id = vultr_firewall_group.strapi_app.id
-    protocol          = "tcp"
-    ip_type           = "v4"
-    subnet            = "0.0.0.0"
-    subnet_size       = 0
-    port              = "80"
-    notes             = "app http"
+  firewall_group_id = vultr_firewall_group.strapi_app.id
+  protocol          = "tcp"
+  ip_type           = "v4"
+  subnet            = "0.0.0.0"
+  subnet_size       = 0
+  port              = "80"
+  notes             = "app http"
 }
 
 resource "vultr_firewall_rule" "app_tcp_443" {
-    firewall_group_id = vultr_firewall_group.strapi_app.id
-    protocol          = "tcp"
-    ip_type           = "v4"
-    subnet            = "0.0.0.0"
-    subnet_size       = 0
-    port              = "443"
-    notes             = "app https"
+  firewall_group_id = vultr_firewall_group.strapi_app.id
+  protocol          = "tcp"
+  ip_type           = "v4"
+  subnet            = "0.0.0.0"
+  subnet_size       = 0
+  port              = "443"
+  notes             = "app https"
 }
 
 resource "vultr_firewall_rule" "app_tcp_22" {
-    firewall_group_id = vultr_firewall_group.strapi_app.id
-    protocol          = "tcp"
-    ip_type           = "v4"
-    subnet            = "0.0.0.0"
-    subnet_size       = 0
-    port              = "22"
-    notes             = "app ssh"
+  firewall_group_id = vultr_firewall_group.strapi_app.id
+  protocol          = "tcp"
+  ip_type           = "v4"
+  subnet            = "0.0.0.0"
+  subnet_size       = 0
+  port              = "22"
+  notes             = "app ssh"
 }
 
 resource "vultr_firewall_rule" "db_tcp_22" {
-    firewall_group_id = vultr_firewall_group.strapi_db.id
-    protocol          = "tcp"
-    ip_type           = "v4"
-    subnet            = "0.0.0.0"
-    subnet_size       = 0
-    port              = "22"
-    notes             = "db ssh"
+  firewall_group_id = vultr_firewall_group.strapi_db.id
+  protocol          = "tcp"
+  ip_type           = "v4"
+  subnet            = "0.0.0.0"
+  subnet_size       = 0
+  port              = "22"
+  notes             = "db ssh"
 }
 
 resource "vultr_firewall_rule" "db_tcp_3306" {
-    firewall_group_id = vultr_firewall_group.strapi_db.id
-    protocol          = "tcp"
-    ip_type           = "v4"
-    subnet            = vultr_instance.strapi_server.main_ip
-    subnet_size       = 32
-    port              = "3306"
-    notes             = "db mysql"
+  firewall_group_id = vultr_firewall_group.strapi_db.id
+  protocol          = "tcp"
+  ip_type           = "v4"
+  subnet            = vultr_instance.strapi_server.main_ip
+  subnet_size       = 32
+  port              = "3306"
+  notes             = "db mysql"
 }
 
 resource "vultr_instance" "strapi_server" {
@@ -98,7 +98,7 @@ resource "vultr_instance" "strapi_server" {
   ddos_protection        = true
   activation_email       = false
   enable_private_network = false
-  ssh_key_ids            = [ vultr_ssh_key.strapi_ssh_key.id ]
+  ssh_key_ids            = [vultr_ssh_key.strapi_ssh_key.id]
   firewall_group_id      = vultr_firewall_group.strapi_app.id
 }
 
@@ -114,6 +114,6 @@ resource "vultr_instance" "strapi_database" {
   ddos_protection        = false
   activation_email       = false
   enable_private_network = false
-  ssh_key_ids            = [ vultr_ssh_key.strapi_ssh_key.id ]
+  ssh_key_ids            = [vultr_ssh_key.strapi_ssh_key.id]
   firewall_group_id      = vultr_firewall_group.strapi_db.id
 }
