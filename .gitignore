@@ -4,3 +4,4 @@ terraform/terraform.tfstate.backup
 terraform/plan.txt
 terraform/.terraform
 terraform/.terraform.lock.hcl
+ansible/inventory

@@ -1,16 +1,19 @@
 # Strapi Vultr Deployment with Terraform & Ansible
 
+**WORK IN PROGRESS** 
 ## About
 
 ## Terraform
 
-### Requirements
+### T-Requirements
 
 - Vultr API Key
-- SSH Keys already configured in Vultr
+- Generated an SSH Key
 
 ### Variables
 
 Vultr API Key via Shell: `export VULTR_API_KEY="yourKeyHere"`
 
 ## Ansible
+
+### A-Requirements
