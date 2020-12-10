@@ -6,7 +6,7 @@ vultr_api_key = "your-vultr-api-key"
 
 # If you already have an SSH key on Vultr
 # you can use the same public key and it will not be duplicated
-ssh_key    = "ssh-rsa your-ssh-key you@your-host"
+ssh_key = "ssh-rsa your-ssh-key you@your-host"
 
 # WIP don't use yet
 #ssh_key_id = ""
