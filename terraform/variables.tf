@@ -1,29 +1,53 @@
-###################
-# Global Settings #
-###################
-
-# If you already have an SSH key on Vultr
-# you can use the same desc and public key and it will not be duplicated
+variable "vultr_api_key" {
+  type        = string
+  description = "Vultr API key."
+}
 
 variable "ssh_key" {
   type        = string
-  description = "The new Strapi SSH key you generated with ssh-keygen."
-  default     = "ssh-rsa yourKey yourUser@yourHost"
+  description = "The new SSH key you generated with ssh-keygen."
 }
 
-# See the following API for Regions: https://api.vultr.com/v2/regions
+variable "ssh_key_id" {
+  type        = string
+  description = "Existing SSH key already in Vultr."
+}
 
 variable "region" {
   type        = string
-  description = "The physical location of the resources"
+  description = "The physical location of the resources."
   default     = "sea"
 }
 
-####################
-# Network Settings #
-####################
+variable "cloudflare_enabled" {
+  type        = bool
+  description = "Define if Cloudflare records should be created."
+  default     = false
+}
 
-# Vultr Private network currently is not working via their API
+variable "cloudflare_email" {
+  type        = string
+  description = "Email Address used for Cloudflare account."
+  default     = "test@test.com"
+}
+
+variable "cloudflare_api_key" {
+  type        = string
+  description = "Cloudflare API Key used to create DNS records."
+  default     = "12345abc"
+}
+
+variable "cloudflare_zone_id" {
+  type        = string
+  description = "Cloudflare Zone ID to use for record creation."
+  default     = ""
+}
+
+variable "strapi_srv_domain" {
+  type        = string
+  description = "Subdomain used for the Strapi Server."
+  default     = "api"
+}
 
 # variable "network_desc" {
 #   type        = string
@@ -43,29 +67,17 @@ variable "region" {
 #   default     = "24"
 # }
 
-#####################
-# Instance Settings #
-#####################
-
-# See the following API for OS IDs: https://api.vultr.com/v2/os
-
 variable "instance_os" {
   type        = string
-  description = "The Operating system installed on the servers"
+  description = "The Operating system installed on the servers."
   default     = "387"
 }
 
 variable "instance_tag" {
   type        = string
-  description = "Tag assigned to the instances"
+  description = "Tag assigned to the instances."
   default     = "strapi"
 }
-
-##############################
-# Strapi App Server Settings #
-##############################
-
-# See the following API for Plans: https://api.vultr.com/v2/plans
 
 variable "strapi_plan" {
   type        = string
@@ -96,12 +108,6 @@ variable "strapi_server_backups" {
   description = "Enable auto backup on the database instance, warning this cost 2$ per month"
   default     = false
 }
-
-###################################
-# Strapi Database Server Settings #
-###################################
-
-# See the following API for Plans: https://api.vultr.com/v2/plans
 
 variable "database_plan" {
   type        = string

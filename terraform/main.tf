@@ -4,13 +4,34 @@ terraform {
       source  = "vultr/vultr"
       version = "2.1.0"
     }
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "2.14.0"
+    }
   }
 }
 
 # Configure the Vultr Provider
 provider "vultr" {
+  api_key     = var.vultr_api_key
   rate_limit  = 700
   retry_limit = 3
+}
+
+# Configure Cloudflare
+provider "cloudflare" {
+  email   = var.cloudflare_email
+  api_key = var.cloudflare_api_key
+}
+
+resource "cloudflare_record" "strapi_api_a" {
+  count   = var.cloudflare_enabled ? 1 : 0
+  zone_id = var.cloudflare_zone_id
+  name    = var.strapi_srv_domain
+  value   = vultr_instance.strapi_server.main_ip
+  type    = "A"
+  ttl     = "1"
+  proxied = false
 }
 
 resource "vultr_ssh_key" "strapi_ssh_key" {
