@@ -15,3 +15,7 @@ ansible/roles/*
 ansible/collections/*
 !ansible/collections/.gitkeep
 ansible/vault_password
+
+# Extras
+extra/ssh_public_keys/*
+!extra/ssh_public_keys/example_user.pub

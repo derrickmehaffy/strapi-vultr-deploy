@@ -1,0 +1,13 @@
+---
+# Global Node, NPM, Yarn vars
+
+
+# Strapi application Vars
+application_name: "my-strapi-app"
+application_dir: "/srv/deploy/{{ application_name }}"
+
+# Nginx Vars
+manala_nginx_configs_exclusive: true
+manala_nginx_configs:
+  - file: strapi.conf
+    template: templates/nginx/strapi.conf.j2
