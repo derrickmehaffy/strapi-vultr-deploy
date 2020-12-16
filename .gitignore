@@ -14,3 +14,4 @@ ansible/roles/*
 !ansible/roles/.gitkeep
 ansible/collections/*
 !ansible/collections/.gitkeep
+ansible/vault_password

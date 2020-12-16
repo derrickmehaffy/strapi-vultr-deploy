@@ -6,6 +6,10 @@ roles:
 - src: verosk.acme_sh
   name: acme_sh
 
+- src: ansistrano.deploy
+
+- src: ansistrano.rollback
+
 # Ansible Galaxy collections
 collections:
 
