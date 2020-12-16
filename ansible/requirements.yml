@@ -1,0 +1,14 @@
+---
+# Ansible Galaxy roles
+roles:
+# https://galaxy.ansible.com/verosk/acme_sh
+# Used to handle HTTPS Certs
+- src: verosk.acme_sh
+  name: acme_sh
+
+# Ansible Galaxy collections
+collections:
+
+# https://galaxy.ansible.com/manala/roles
+# Used for accounts, apt, fail2ban, git, mysql, nginx, nodejs, npm, ssh, sudo, systemd, and yarn
+- manala.roles

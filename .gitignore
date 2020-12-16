@@ -1,3 +1,4 @@
+# Terraform
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
 terraform/plan.txt
@@ -5,4 +6,11 @@ terraform/.terraform
 terraform/.terraform.lock.hcl
 terraform/*.tfvars
 !terraform/example.tfvars
+
+# Ansible
 ansible/inventory
+ansible/roles/*
+!ansible/roles
+!ansible/roles/.gitkeep
+ansible/collections/*
+!ansible/collections/.gitkeep
