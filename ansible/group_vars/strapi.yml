@@ -1,13 +1,17 @@
 ---
 # Global Node, NPM, Yarn vars
-
+node_ver: 14.14.0
 
 # Strapi application Vars
 application_name: "my-strapi-app"
 application_dir: "/srv/deploy/{{ application_name }}"
+application_git: "https://github.com/derrickmehaffy/strapi-deploy-example"
 
 # Nginx Vars
-manala_nginx_configs_exclusive: true
-manala_nginx_configs:
-  - file: strapi.conf
-    template: templates/nginx/strapi.conf.j2
+nginx_remove_default_vhost: false
+nginx_upstream:
+  - name: strapi
+    strategy: "least_conn"
+    servers: {
+      "http://localhost:1337"
+    }

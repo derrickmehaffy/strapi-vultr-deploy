@@ -3,6 +3,19 @@ server {
   listen 80;
   server_name api.example.com;
 
+  # Redirect HTTP to HTTPS
+  return 301 https://$host$request_uri;
+}
+
+server {
+  # Listen HTTPS
+  listen 443 ssl;
+  server_name api.example.com;
+
+  # SSL config
+  ssl_certificate /path/to/your/certificate/file;
+  ssl_certificate_key /path/to/your/certificate/key;
+
   # Proxy Config
   location / {
     proxy_pass http://strapi;

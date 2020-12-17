@@ -6,13 +6,41 @@ roles:
 - src: verosk.acme_sh
   name: acme_sh
 
+# Used for deploying projects
 - src: ansistrano.deploy
-
+  name: deploy
 - src: ansistrano.rollback
+  name: rollback
+
+# https://galaxy.ansible.com/weareinteractive/apt
+# Used to manage apt packages
+- src: weareinteractive.apt
+  name: apt
+
+# https://galaxy.ansible.com/unxnn/users
+# Used for user management
+- src: unxnn.users
+  name: users
+
+# https://galaxy.ansible.com/andrewrothstein/node
+# Used to install Nodejs
+- src: andrewrothstein.node
+  name: nodejs
+
+# https://galaxy.ansible.com/andrewrothstein/yarn
+# Used to install Nodejs
+- src: andrewrothstein.yarn
+  name: yarn
+
+# https://galaxy.ansible.com/geerlingguy/mysql
+# Used to install and manage MariaDB
+- src: geerlingguy.mysql
+  name: mysql
+
+# https://galaxy.ansible.com/geerlingguy/nginx
+# Used to install and manage nginx
+- src: geerlingguy.nginx
+  name: nginx
 
 # Ansible Galaxy collections
-collections:
-
-# https://galaxy.ansible.com/manala/roles
-# Used for accounts, apt, fail2ban, git, mysql, nginx, nodejs, npm, ssh, sudo, systemd, and yarn
-- manala.roles
+#collections:

@@ -1,21 +1,32 @@
 ---
+# Apt
+apt_dependencies:
+  - software-properties-common
+  - build-essential
+  - net-tools
+  - zip
+  - unzip
+
+apt_upgrade: dist
+
+apt_autoremove: yes
+
+# User
 ssh_public_keys_dir: ../../extra/ssh_public_keys
 
-manala_accounts_groups:
-  - group: devops
-    system: false
-  - group: restricted_user
-    system: false
+# Database
+strapi_db_root: my-strapi
+strapi_db_name: -db
+strapi_db_user: -admin
 
-manala_accounts_users:
-  - user: root
-    authorized_keys:
-      - "{{ ssh_public_keys_dir }}/example_user.pub"
-  - user: deploy
-    groups: ['restricted_user']
-    authorized_keys:
-      - "{{ ssh_public_keys_dir }}/example_user.pub"
-  - user: devops
-    groups: ['devops', 'sudo']
-    authorized_keys:
-      - "{{ ssh_public_keys_dir }}/example_user.pub"
+# users:
+#   - username: root
+#     ssh_key:
+#       - 
+#   - username: deploy
+#     lock: true
+#     groups:
+#       - restricted_user
+#   - username: devops
+#     lock: false
+#     use_sudo_nopass: true

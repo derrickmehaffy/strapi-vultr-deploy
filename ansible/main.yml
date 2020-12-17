@@ -1,0 +1,9 @@
+- hosts: all
+  become: false
+  # become_method: sudo
+  remote_user: root
+
+  roles:
+    - apt
+
+- import_playbook: playbooks/strapi_database.yml

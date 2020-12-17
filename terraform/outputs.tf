@@ -22,9 +22,9 @@ output "strapi_database_id" {
   value = vultr_instance.strapi_database.id
 }
 
-# output "strapi_fqdn" {
-#   value = cloudflare_record.strapi_api_a.hostname
-# }
+output "strapi_fqdn" {
+  value = cloudflare_record.strapi_api_a.*.hostname
+}
 
 # output "strapi_server_private_ip" {
 #   value = vultr_instance.strapi_server.internal_ip
