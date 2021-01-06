@@ -1,10 +1,25 @@
 ---
 - hosts: strapi
-  become: false
-  # become_method: sudo
-  remote_user: root
+  become: true
+  become_method: sudo
+  remote_user: devops
+  vars_files:
+    - ../crypt_vars/strapi.yml
+    - ../crypt_vars/database.yml
 
   roles:
     - role: nodejs
     - role: yarn
+    - role: acme_sh
     - role: nginx
+
+  tasks:
+    - name: Create Strapi App Directory for deploy user
+      file:
+        path: "{{ application_dir }}"
+        state: directory
+        owner: deploy
+        group: deploy
+        mode: 0775
+
+- import_playbook: strapi_dply.yml

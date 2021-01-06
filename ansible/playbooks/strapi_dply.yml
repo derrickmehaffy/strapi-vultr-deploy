@@ -1,0 +1,20 @@
+---
+- hosts: strapi
+  become: false
+  remote_user: deploy
+  vars_files:
+    - ../crypt_vars/strapi.yml
+    - ../crypt_vars/database.yml
+
+  vars:
+    ansistrano_deploy_to: "{{ application_dir }}"
+    ansistrano_keep_releases: 3
+    ansistrano_deploy_via: git
+    ansistrano_git_repo: "{{ application_git }}"
+    ansistrano_git_branch: "main"
+    # ansistrano_before_setup_tasks_file:
+    # ansistrano_before_update_code_tasks_file:
+    # ansistrano_after_symlink_tasks_file:
+
+  roles:
+    - role: deploy
