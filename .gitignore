@@ -8,6 +8,9 @@ terraform/*.tfvars
 !terraform/example.tfvars
 
 # Ansible
+ansible/crypt_vars/all.yml
+ansible/crypt_vars/strapi.yml
+ansible/crypt_vars/database.yml
 ansible/inventory
 ansible/roles/*
 !ansible/roles
@@ -15,7 +18,9 @@ ansible/roles/*
 ansible/collections/*
 !ansible/collections/.gitkeep
 ansible/vault_password
+ansible/other_vars/tf_ssh.yml
+ansible/host_vars/*
+!ansible/host_vars/.gitkeep
+ansible/ssh_keys/*
+ansible/ssh_keys/example_user.pub
 
-# Extras
-extra/ssh_public_keys/*
-!extra/ssh_public_keys/example_user.pub

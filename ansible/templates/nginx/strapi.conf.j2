@@ -1,11 +1,10 @@
 server {
-  # Listen HTTP
-  listen 80;
-  server_name api.example.com;
+  listen {{ item.listen }};
+  server_name {{ item.server_name }};
 
   # Proxy Config
   location / {
-    proxy_pass http://strapi;
+    proxy_pass http://{{ item.upstream }};
     proxy_http_version 1.1;
     proxy_set_header X-Forwarded-Host $host;
     proxy_set_header X-Forwarded-Server $host;

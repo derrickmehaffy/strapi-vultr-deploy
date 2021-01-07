@@ -10,23 +10,4 @@ apt_dependencies:
 apt_upgrade: dist
 
 apt_autoremove: yes
-
-# User
-ssh_public_keys_dir: ../../extra/ssh_public_keys
-
-# Database
-strapi_db_root: my-strapi
-strapi_db_name: -db
-strapi_db_user: -admin
-
-# users:
-#   - username: root
-#     ssh_key:
-#       - 
-#   - username: deploy
-#     lock: true
-#     groups:
-#       - restricted_user
-#   - username: devops
-#     lock: false
-#     use_sudo_nopass: true
+# See crypt_vars/all.yml for user creation

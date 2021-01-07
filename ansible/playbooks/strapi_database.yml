@@ -1,8 +1,10 @@
 ---
 - hosts: database
-  become: false
-  # become_method: sudo
-  remote_user: root
+  become: true
+  become_method: sudo
+  remote_user: devops
+  vars_files:
+    - ../crypt_vars/database.yml
 
   roles:
     - role: mysql
