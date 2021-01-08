@@ -1,0 +1,35 @@
+- name: Copy ecosystem.config.js
+  template:
+    src: "{{ inventory_dir }}/templates/strapi/ecosystem.config.js.j2"
+    dest: "{{ application_dir }}/shared/ecosystem.config.js"
+    owner: deploy
+    group: deploy
+
+- name: Create ecosystem.config.js symlink
+  file:
+    src: "{{ application_dir }}/shared/ecosystem.config.js"
+    dest: "{{ ansistrano_release_path.stdout }}/ecosystem.config.js"
+    state: link
+
+- name: Copy .env
+  template:
+    src: "{{ inventory_dir }}/templates/strapi/.env.j2"
+    dest: "{{ application_dir }}/shared/.env"
+    owner: deploy
+    group: deploy
+
+- name: Create .env symlink
+  file:
+    src: "{{ application_dir }}/shared/.env"
+    dest: "{{ ansistrano_release_path.stdout }}/.env"
+    state: link
+
+- name: Install node_modules
+  command: yarn
+  args:
+    chdir: "{{ ansistrano_release_path.stdout }}"
+
+- name: Build Strapi Admin
+  shell: "NODE_ENV=production yarn build"
+  args:
+    chdir: "{{ ansistrano_release_path.stdout }}"

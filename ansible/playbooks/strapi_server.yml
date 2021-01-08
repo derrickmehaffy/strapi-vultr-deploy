@@ -6,6 +6,7 @@
   vars_files:
     - ../crypt_vars/strapi.yml
     - ../crypt_vars/database.yml
+    - ../tf_vars/tf_vars.yml
 
   roles:
     - role: nodejs
@@ -14,9 +15,16 @@
     - role: nginx
 
   tasks:
-    - name: Create Strapi App Directory for deploy user
+    - name: Create Strapi app directory for deploy user
       file:
         path: "{{ application_dir }}"
+        state: directory
+        owner: deploy
+        group: deploy
+        mode: 0775
+    - name: Create app shared directory
+      file:
+        path: "{{ application_dir}}/shared"
         state: directory
         owner: deploy
         group: deploy

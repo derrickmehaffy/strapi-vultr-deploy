@@ -4,7 +4,7 @@
   remote_user: root
   vars_files:
     - ./crypt_vars/all.yml
-    - ./other_vars/tf_ssh.yml
+    - ./tf_vars/tf_vars.yml
 
   roles:
     - apt
@@ -17,13 +17,14 @@
         state: present
         key: "{{ item }}"
       with_file:
-        - ssh_keys/example_user.pub
+        - ssh_keys/example_devops.pub
     - name: Setup Deploy SSH Keys
       authorized_key:
         user: deploy
         state: present
         key: "{{ item }}"
       with_file:
-        - ssh_keys/example_user.pub
+        - ssh_keys/example_devops.pub
+        - ssh_keys/example_deploy.pub
 
 - import_playbook: playbooks/strapi_database.yml

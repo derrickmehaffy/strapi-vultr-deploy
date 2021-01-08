@@ -1,0 +1,4 @@
+acme_sh_account_email: "you@email.com"
+acme_sh_default_dns_provider_api_keys:
+  "CF_Key": "yourCFKey"
+  "CF_Email": "you@email.com"

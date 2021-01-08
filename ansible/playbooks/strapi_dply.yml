@@ -5,6 +5,7 @@
   vars_files:
     - ../crypt_vars/strapi.yml
     - ../crypt_vars/database.yml
+    - ../tf_vars/tf_vars.yml
 
   vars:
     ansistrano_deploy_to: "{{ application_dir }}"
@@ -12,8 +13,7 @@
     ansistrano_deploy_via: git
     ansistrano_git_repo: "{{ application_git }}"
     ansistrano_git_branch: "main"
-    # ansistrano_before_setup_tasks_file:
-    # ansistrano_before_update_code_tasks_file:
+    ansistrano_before_symlink_tasks_file: ../tasks/before-symlink-tasks.yml
     # ansistrano_after_symlink_tasks_file:
 
   roles:

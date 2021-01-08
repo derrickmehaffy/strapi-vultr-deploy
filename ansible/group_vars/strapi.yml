@@ -1,32 +1,51 @@
 ---
-# Global Node, NPM, Yarn vars
-node_ver: 14.14.0
-node_parent_install_dir: /usr/bin
+###################
+# Node, NPM, Yarn #
+###################
+nodejs_version: 14
 
-# Strapi application Vars
-# application_name: "my-strapi-app" # Set automatically by Terraform via ansible host_vars
+##########
+# Strapi #
+##########
 application_dir: "/srv/deploy/{{ application_name }}"
 application_git: "https://github.com/derrickmehaffy/strapi-deploy-example"
 
-# ACME.sh vars
+###########
+# Acme.sh #
+###########
 acme_sh_become_user: "root"
 acme_sh_git_url: "https://github.com/acmesh-official/acme.sh"
 acme_sh_git_version: "master"
 acme_sh_upgrade: true
+acme_sh_list_domains: true
+acme_sh_default_debug: false
+acme_sh_default_dns_sleep: 120
 acme_sh_copy_certs_to_path: "/etc/nginx/ssl"
 acme_sh_default_dns_provider: "dns_cf"
 acme_sh_default_issue_renew_hook: "sudo systemctl reload nginx"
 acme_sh_domains:
   - domains: ["{{ application_url }}"]
+acme_sh_default_staging: true
+acme_sh_default_force_issue: false
+# Swap the above two vars to use production Let's Encrypt
+# Only run the playbook with force_issue ONCE after changing to prod
+# acme_sh_default_staging: false
+# acme_sh_default_force_issue: true
 
-# Nginx Vars
+#########
+# Nginx #
+#########
 nginx_remove_default_vhost: true
 nginx_client_max_body_size: "256m"
 nginx_upstreams:
   - name: strapi
     strategy: "least_conn"
     servers: { "localhost:1337" }
-# Use if you are configuring with SSL
+
+###############
+# Nginx HTTPS #
+###############
+# Use if you plan to use Acme.sh to issue a Let's Encrypt Certificate
 nginx_vhosts:
   - listen: "80"
     server_name: "{{ application_url }}"
@@ -38,10 +57,12 @@ nginx_vhosts:
     ssl_key: "{{ acme_sh_copy_certs_to_path }}/{{ application_url }}.key"
     upstream: "strapi"
     template: "../templates/nginx/strapi_ssl.conf.j2"
+##############
+# Nginx HTTP #
+##############
 # Use if you are not using SSL
 # nginx_vhosts:
 #   - listen: "80"
 #     server_name: "{{ application_url }}.80.conf"
 #     upstream: "strapi"
 #     template: "templates/nginx/strapi.conf.j2"
-

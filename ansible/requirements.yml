@@ -22,14 +22,14 @@ roles:
   - src: ryandaniels.create_users
     name: users
 
-  # https://galaxy.ansible.com/andrewrothstein/node
+  # https://github.com/angristan/ansible-nodejs
   # Used to install Nodejs
-  - src: andrewrothstein.node
+  - src: https://github.com/angristan/ansible-nodejs
     name: nodejs
 
-  # https://galaxy.ansible.com/andrewrothstein/yarn
+  # https://github.com/angristan/ansible-yarn
   # Used to install Nodejs
-  - src: andrewrothstein.yarn
+  - src: https://github.com/angristan/ansible-yarn
     name: yarn
 
   # https://galaxy.ansible.com/geerlingguy/mysql

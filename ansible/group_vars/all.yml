@@ -1,13 +1,16 @@
 ---
-# Apt
+#######
+# Apt #
+#######
 apt_dependencies:
   - software-properties-common
   - build-essential
   - net-tools
   - zip
   - unzip
-
 apt_upgrade: dist
-
 apt_autoremove: yes
+#########
+# Users #
+#########
 # See crypt_vars/all.yml for user creation

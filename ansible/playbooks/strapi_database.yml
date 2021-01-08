@@ -5,6 +5,7 @@
   remote_user: devops
   vars_files:
     - ../crypt_vars/database.yml
+    - ../tf_vars/tf_vars.yml
 
   roles:
     - role: mysql

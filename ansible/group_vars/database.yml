@@ -1,18 +1,18 @@
 ---
+############
+# Database #
+############
 mysql_packages:
   - mariadb-server-10.3
   - mariadb-client-10.3
-
 mysql_bind_address: "0.0.0.0"
-# See the crypt_vars/strapi_database.yml file
-
 mysql_databases:
   - name: "{{ strapi_db_name }}"
     encoding: utf8
     collation: utf8_general_ci
-
 mysql_users:
   - name: "{{ strapi_db_user }}"
     host: "%"
     password: "{{ strapi_db_pass }}"
     priv: "{{ strapi_db_name }}.*:ALL"
+# See the crypt_vars/strapi_database.yml file for DB Password

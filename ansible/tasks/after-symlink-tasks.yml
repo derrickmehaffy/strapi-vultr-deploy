@@ -1,0 +1,4 @@
+- name: Run website
+  command: "pm2 reload ecosystem.config.js"
+  args:
+    chdir: "{{ ansistrano_release_path.stdout }}/strapi-admin"
