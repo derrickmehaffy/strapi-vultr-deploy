@@ -10,6 +10,7 @@ vault_password
 .DS_Store
 plan.txt
 *.tfstate
+*.tfstate.lock.info
 *.lock.hcl
 terraform/*.tfvars
 !terraform/example.tfvars
