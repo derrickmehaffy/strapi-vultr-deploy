@@ -29,5 +29,11 @@
         owner: deploy
         group: deploy
         mode: 0775
+    - name: Install pm2 globally
+      npm: name=pm2 global=yes production=yes
+    - name: Setup pm2 startup (systemd)
+      shell: "env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u deploy --hp /home/deploy"
+      become: true
+      become_user: root
 
 - import_playbook: strapi_dply.yml

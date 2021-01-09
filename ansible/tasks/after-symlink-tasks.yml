@@ -1,4 +1,8 @@
-- name: Run website
-  command: "pm2 reload ecosystem.config.js"
+- name: Run Strapi service
+  command: "pm2 startOrReload ecosystem.config.js -i max"
   args:
-    chdir: "{{ ansistrano_release_path.stdout }}/strapi-admin"
+    chdir: "{{ application_dir }}/{{ ansistrano_current_dir }}"
+  environment:
+    NODE_ENV: production
+- name: Save running pm2 services
+  command: "pm2 save"

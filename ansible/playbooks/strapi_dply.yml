@@ -1,7 +1,7 @@
 ---
 - hosts: strapi
   become: false
-  remote_user: devops
+  remote_user: deploy
   vars_files:
     - ../crypt_vars/strapi.yml
     - ../crypt_vars/database.yml
@@ -14,9 +14,7 @@
     ansistrano_git_repo: "{{ application_git }}"
     ansistrano_git_branch: "main"
     ansistrano_before_symlink_tasks_file: ../tasks/before-symlink-tasks.yml
-    # ansistrano_after_symlink_tasks_file:
+    ansistrano_after_symlink_tasks_file: ../tasks/after-symlink-tasks.yml
 
   roles:
     - role: deploy
-      become: true
-      become_user: deploy
