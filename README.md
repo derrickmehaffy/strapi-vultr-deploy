@@ -62,7 +62,7 @@ Terraform within this template does the following:
 - Have an SSH public key (Doesn't currently support existing keys, yet)
 - Terraform already installed
 
-### Variables
+### T-Variables
 
 Variables are set in the `./terraform/terraform.tfvars`, there is an [example file](./terraform/example.tfvars) that you can copy and modify.
 
@@ -203,6 +203,8 @@ This template uses various roles from Ansible-Galaxy and misc GitHub repos, I su
 Next you need to make a `vault_password` file at the ansible folder root to encrypt/decrypt the `crypt_vars/*` files. See the [example folder](./ansible/crypt_vars/example) and it's [README.md](./ansible/crypt_vars/example/README.md) for some templates and a sample encrypted file. There is a password generation script located [here](./ansible/scripts/gen_pwd.sh) for my fellow lazy folks. **Keep that password safe and handy, if you lose it, back to square one on configuring shit**
 
 Alright off to the variables, there is a lot so good luck :) (You'll probably need to scroll the table, lots of info, sorry)
+
+### A-Variables
 
 | Var Name                                       | Type    | Default                                                 | Required | File Path               | Automated |
 | ---------------------------------------------- | ------- | ------------------------------------------------------- | -------- | ----------------------- | --------- |
