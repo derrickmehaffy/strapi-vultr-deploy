@@ -1,5 +1,7 @@
 # Strapi Vultr Deployment with Terraform & Ansible
 
+![strapi + ansible/terraform](./images/strapi+ansible_terraform.png)
+
 **WORK IN PROGRESS**
 
 ## Foreword
