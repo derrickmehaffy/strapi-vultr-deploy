@@ -1,7 +1,7 @@
 ---
 - hosts: strapi
   become: false
-  remote_user: deploy
+  remote_user: devops
   vars_files:
     - ../crypt_vars/strapi.yml
     - ../crypt_vars/database.yml
@@ -18,3 +18,5 @@
 
   roles:
     - role: deploy
+      become: true
+      become_user: deploy
