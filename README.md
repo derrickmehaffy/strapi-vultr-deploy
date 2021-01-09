@@ -31,7 +31,7 @@ You can find a sample application [located here](https://github.com/derrickmehaf
 ### To-do / Nice to have Features
 
 - [ ] Support Deployment without Cloudflare / SSL / Domain
-- [ ] Support existing Vultr API Key ID (WIP)
+- [ ] Support existing Vultr SSH Key ID (WIP)
 - [ ] Automatic testing of Deployed Strapi Application to ensure it's actually running, else rollback to previous version
 - [ ] Support automatic database backup pre-deploy
 - [ ] Support automatic database restore if new deploy fails and rollback is triggered
