@@ -257,7 +257,7 @@ Coming soon
 ## Other deploy scripts I have created or plan to
 
 - strapi-aws-deploy (Coming soon)
-- strapi-digitalocean-deploy (Coming soon)
+- [strapi-digitalocean-deploy](https://github.com/derrickmehaffy/strapi-digitalocean-deploy)
 - strapi-googlecloud-deploy (Coming soon)
 - strapi-linode-deploy (Coming soon)
 - [strapi-vultr-deploy](https://github.com/derrickmehaffy/strapi-vultr-deploy) (You are here?)
