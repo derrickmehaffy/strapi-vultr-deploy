@@ -2,7 +2,7 @@
 
 # Strapi Vultr Deployment with Terraform & Ansible
 
-**WORK IN PROGRESS**
+## WORK IN PROGRESS
 
 ## Foreword
 
