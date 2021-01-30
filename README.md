@@ -22,7 +22,7 @@ Please see the dedicated section in the [Strapi Guru](https://docs.strapi.guru/d
 
 - strapi-aws-deploy (Coming soon)
 - [strapi-digitalocean-deploy](https://github.com/derrickmehaffy/strapi-digitalocean-deploy)
-- strapi-googlecloud-deploy (Coming soon)
+- strapi-gcp-deploy (Coming soon)
 - [strapi-linode-deploy](https://github.com/derrickmehaffy/strapi-linode-deploy)
 - [strapi-vultr-deploy](https://github.com/derrickmehaffy/strapi-vultr-deploy) (You are here?)
 
